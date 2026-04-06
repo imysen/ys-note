@@ -99,11 +99,8 @@
 .animated-element {
   animation: slideInLeft 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.08) 0.5s backwards;
 }
-```
+
 
 请吸收上述设计语言里的光影、厚度和物理运动理念，接下来请帮我编写：
 ```
 
-```
-
-***
