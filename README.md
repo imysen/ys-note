@@ -22,7 +22,7 @@
 
 ***
 
-### 📋 复制以下提示词发送给 AI：
+# 📋 复制以下提示词发送给 AI：
 
 ```markdown
 你现在是一个顶尖的 UI/UX 前端开发工程师。请帮我编写一段前端代码（Vue/React/纯HTML+CSS均可），整体界面需要严格参照 **“iOS 26 未来的拟物毛玻璃风格（Glassmorphism）与 3D 空间动态响应”** 进行设计。
@@ -74,7 +74,7 @@
   border-top: 1px solid rgba(255, 255, 255, 1);
   border-left: 1px solid rgba(255, 255, 255, 1);
   /* 关键核心：3D偏转与放大，给人悬浮按压感 */
-  transform: perspective(500px) rotateX(12deg) rotateY(-8deg) scale(1.04) translateY(-2px);
+  transform: perspective(500px) rotateX(4deg) rotateY(-2deg) scale(1.02) translateY(-1px);
   /* 扩散外阴影，追加外部泛光边缘和更强的内发光 */
   box-shadow: 
     0 15px 40px rgba(0, 0, 0, 0.2),
