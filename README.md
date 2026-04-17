@@ -14,15 +14,7 @@
 [Transfonter](https://transfonter.org/)
 ![alt text](https://cfimgbed-cncdn.236668.xyz/file/1772224939733.webp)
 
-### 拟物毛玻璃风格提示语
-''' 
-正在优化工具选择...这里为你总结了一段可以直接喂给任何 AI 的**“iOS 26 拟物玻璃风（Glassmorphism + 3D 动效）”**标准提示词模板，里面包含了设计核心规范和我们在本项目中打磨好的标准示范代码。
-
-你可以把下面的内容保存起来，在其他项目里直接发给 AI 让他照着写：
-
-***
-
-# 📋 复制以下提示词发送给 AI：
+### IOS26风格提示语
 
 ```markdown
 你现在是一个顶尖的 UI/UX 前端开发工程师。请帮我编写一段前端代码（Vue/React/纯HTML+CSS均可），整体界面需要严格参照 **“iOS 26 未来的拟物毛玻璃风格（Glassmorphism）与 3D 空间动态响应”** 进行设计。
@@ -104,3 +96,12 @@
 请吸收上述设计语言里的光影、厚度和物理运动理念，接下来请帮我编写：
 ```
 
+```
+
+你现在是一个顶尖的 UI/UX 前端开发工程师。请帮我编写一个【全局 Toast 提示组件】，该组件需要严格具备 **“iOS / 灵动岛级别的玻璃风（Glassmorphism）”** 质感。请严格遵守以下核心设计和动效规范，并参考我提供的示范代码：1. **全景深毛玻璃质感**：背景不仅要半透明，必须叠加 `saturate(180%)` 超高饱和度和大范围 `blur(20px)`，在滚动或经过任何复杂背景时都要有极佳的通透变色感。2. **药丸形态与流体高光**：必须是标准的药丸形状（`border-radius: 999px`）。顶部边框（`border-top`）需要更亮来反射环境光，内部有 `inset` 的高光反射。3. **物理衰减动效**：进入和退出不要生硬。进入时从略微缩小（`scale(0.95)`）和上方（`translateY(10px)`）滑入，并带有平滑的缓动曲线。4. **悬浮安全层级**：具备足够的全局大阴影（`0 8px 32px rgba(0,0,0,0.1)`）并忽略鼠标事件（`pointer-events: none`）以防穿透阻挡操作。以下是该风格的标准 **Toast 气泡** 结构与 CSS 参考示范，在生成代码时可以复用这种高级质感参数：```html<!-- Vue / HTML 结构示范 --><Transition name="fade">  <div v-if="showToast" class="dev-toast">    <svg viewBox="0 0 24 24" fill="none" class="dev-toast-icon">      <!-- 提示/警告 Icon (iOS Warning Orange) -->      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>      <path d="M12 8V12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>      <path d="M12 16H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>    </svg>    <span>功能正在开发中...</span>  </div></Transition>
+
+/* Toast 组件样式核心 */.dev-toast {  position: fixed;  top: 40px; /* 距离屏幕顶部的安全位置 */  left: 50%;  transform: translateX(-50%); /* 强制水平居中 */  background: rgba(255, 255, 255, 0.75);    /* 极致毛玻璃：高模糊 + 鲜艳度提升 */  backdrop-filter: blur(20px) saturate(180%);  -webkit-backdrop-filter: blur(20px) saturate(180%);    /* 拟物高光描边 */  border: 1px solid rgba(255, 255, 255, 0.5);  border-top: 1px solid rgba(255, 255, 255, 0.8);    padding: 12px 24px;  border-radius: 999px; /* 胶囊圆角 */  color: #111;  font-weight: 600;  font-size: 1.05rem;    /* 底部阴影 + 顶部内补反光 */  box-shadow:     0 8px 32px rgba(0, 0, 0, 0.1),    inset 0 2px 4px rgba(255, 255, 255, 0.6);      z-index: 10000;  pointer-events: none; /* 重点：防止阻碍后面元素的点击 */  display: flex;  align-items: center;  gap: 8px; /* 图标与文字的艰巨 */}/* 图标颜色配置 */.dev-toast-icon {  width: 20px;  height: 20px;  stroke: #ff9500; /* iOS 系统级警告橙色 */}/* Vue 柔和过渡动画参数 */.fade-enter-active,.fade-leave-active {  transition: opacity 0.5s ease, transform 0.5s ease;}.fade-enter-from,.fade-leave-to {  opacity: 0;  /* 带有位移与微缩放的空间进场 */  transform: translate(-50%, -10px) scale(0.95); }
+
+请根据上述要求和参数，帮我封装一个可复用的：
+
+```
