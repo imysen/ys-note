@@ -16,6 +16,8 @@
 
 ### IOS26风格提示语
 
+<span style="font-size: 0.85em;">
+
 ```markdown
 你现在是一个顶尖的 UI/UX 前端开发工程师。请帮我编写一段前端代码（Vue/React/纯HTML+CSS均可），整体界面需要严格参照 **“iOS 26 未来的拟物毛玻璃风格（Glassmorphism）与 3D 空间动态响应”** 进行设计。
 
@@ -106,6 +108,52 @@
 
 ```
 
+</span>
+
 ### DEVTOOL-NETWORK配置
 ![alt text](https://imgcdn.236668.xyz/file/1777563284912.webp)
 ![alt text](https://imgcdn.236668.xyz/file/1777563285003.webp)
+
+### hitokoto一言API容器编排
+<span style="font-size: 0.85em;">
+'''
+services:
+  redis:
+    image: redis:7
+    container_name: redis
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+
+  hitokoto_api:
+    image: hitokoto/api:release
+    container_name: hitokoto_api
+    restart: unless-stopped
+    depends_on:
+      - redis
+    environment:
+      NODE_ENV: production
+
+      # 服务配置：改成你自己的域名/标识
+      url: https://hitokotov1.api.236668.xyz
+      api_name: sh-01-X23Hwoc
+
+      # Redis 连接（同编排内服务名就是 redis）
+      redis.host: redis
+      redis.port: 6379
+
+    ports:
+      - "8000:8000"
+    volumes:
+      # API 持；久化数据（面板一般会映射到它自己的存储路径不确定就先用 volume）
+      - api_data:/usr/src/app/data
+
+volumes:
+  redis_data:
+  api_data:
+'''
+</span>
